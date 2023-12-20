@@ -1,0 +1,16 @@
+TODO: Define schema 
+Todo item have 
+{
+  id: id,
+  text: text,
+  order: order,
+}
+and also create the database here
+TODO; Create a function to insert data into the database
+this should match the schema
+TODO: Create a function to read data from the database (sort it by order and save it to a list)
+TODO: Show the data into todo compnonents
+by ascending the order of the list
+TODO: Create a function to update the order of the list
+this function will run after the compnonents drop
+and will update its position accordingly.
