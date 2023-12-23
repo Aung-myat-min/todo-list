@@ -7,7 +7,7 @@ const createTableQuery = `
   CREATE TABLE IF NOT EXISTS todos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     text TEXT NOT NULL,
-    sort_order INTEGER UNIQUE NOT NULL
+    sort_order INTEGER NOT NULL
   );
 `;
 

@@ -68,6 +68,17 @@ export default function Home() {
     }
   };
 
+  const handleDrop = async (id: number, sort_order: number) => {
+    try {
+      await axios.put("/api/", {
+        id: id,
+        sort_order: sort_order + 1,
+      });
+    } catch {
+      console.error("Error updating the order");
+    }
+  };
+
   return (
     <main>
       <h1>Todo List</h1>
@@ -88,8 +99,14 @@ export default function Home() {
             draggable
             onDragStart={(e) => (dragItem.current = index)}
             onDragEnter={(e) => (dragOverItem.current = index)}
-            onDragOver={handleSort}
-            onDragEnd={(e) => e.preventDefault()}
+            onDragOver={(e) => {
+              e.preventDefault();
+            }}
+            onDrag={handleSort}
+            onDrop={(e) => {
+              e.preventDefault(); // Add this line
+              handleDrop(item.id, index);
+            }}
           >
             {/* Change the line below to render the specific property */}
             {item.text}
